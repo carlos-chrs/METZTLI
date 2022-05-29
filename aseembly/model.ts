@@ -1,7 +1,7 @@
 import { PersistentUnorderedMap, context, PersistentMap, u128 } from "near-sdk-as";
  @nearBindgen
 export class Product{
-    // Atributtes
+    // Atributos 
     id: string;
     name: string;
     description: string;
@@ -9,32 +9,32 @@ export class Product{
     price: string;
     owner:string;
     public static fromPayload(payload: Product): Product {
-        const product = new Product(); //New Product
-        //Load the values to the product
+        const product = new Product(); //Nuevo producto
+        //cargar los valores al producto
         product.id=payload.id;
         product.name=payload.name;
         product.description=payload.description;
         product.image=payload.image;
         product.price=payload.price;
         product.owner = context.sender;
-        //return the product
+        //devolver el producto
         return product;
     }
 }
 @nearBindgen
-export class Client { //Class Client
-    //Attributtes
+export class Client { //clase Cliente 
+    //Attributos 
     id:string;
     user: string;
     address: string;
 
-    // Method to load the values
+    // metodo para cargar los valores 
     public  static loadClient(loadClient: Client): Client{
         let client=new Client();
         client.id=loadClient.id;
         client.user=loadClient.user;
         client.address=loadClient.address;
-        //Return a Object Client
+        //Devolver un objeto cliente 
         return client;
     }
 }
