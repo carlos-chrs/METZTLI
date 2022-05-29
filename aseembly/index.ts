@@ -7,7 +7,7 @@
 // @Param productID: Is the ID of product that you want to buy
 export function buyProduct(productId: string): void {
     const product = getProduct(productId); //Get the product
-    if (product == null) { //Verificate if the product exist
+    if (product == null) { //Verifica si el producto existe
         throw new Error("Producto No Encontrado"); //Message Error
     }
     if (product.price.toString() != context.attachedDeposit.toString()) { //Verify if the Pay is correct
