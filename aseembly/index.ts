@@ -10,22 +10,23 @@ export function buyProduct(productId: string): void {
     if (product == null) { //Verifica si el producto existe
         throw new Error("Producto No Encontrado"); //Message Error
     }
-    if (product.price.toString() != context.attachedDeposit.toString()) { //Verify if the Pay is correct
+    if (product.price.toString() != context.attachedDeposit.toString()) { //Verify if the Pay is correct //Verifica que el pago sea correcto.
         throw new Error("Error al procesar el pago, intenta más tarde");
     }
-    
+    //En caso de que no se presenten los errores anterioes, entonces: 
     ContractPromiseBatch.create(product.owner).transfer(context.attachedDeposit); //Transfer the Coins-Nears
     productsStorage.set(product.id, product); 
 }
 
 //Method to add a product 
+//Método para añadir un producto
 // @Param producto: Is a reference of the product to add
 export function addProduct(product: Product): void {
-    let storedProduct = productsStorage.get(product.id); //Serch the product in the Map 
-    if (storedProduct !== null) { //If is different to NULL the product is ready
-        throw new Error(`El ID: ${product.id} ya existe en nuestro inventario`); //Message
+    let storedProduct = productsStorage.get(product.id); //Serch the product in the Map //Buscar el producto en el mapa.
+    if (storedProduct !== null) { //If is different to NULL the product is ready  //Si es diferente a NULL, el producto está listo.
+        throw new Error(`El ID: ${product.id} ya existe en nuestro inventario`); //Mensaje de confirmación
     } 
-    productsStorage.set(product.id, Product.fromPayload(product)); //Will add the Producto to the Map of products
+    productsStorage.set(product.id, Product.fromPayload(product)); //Will add the Producto to the Map of products  //Se añadirá el producto al mapa de productos
 }
 
 // Method to get all Products
