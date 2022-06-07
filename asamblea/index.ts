@@ -32,7 +32,7 @@ export function addProduct(product: Product): void {
 
 // Method to get all Products
 export function getAllProducts(): Array<Product> {
-    return productsStorage.values(); //Return his values- in the front we will inject the values
+    return productsStorage.values(); //Return his values- in theees front we will inject the valuees
 }
 
 // @Param ID: Is the ID of product to find
