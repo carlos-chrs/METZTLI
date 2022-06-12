@@ -25,3 +25,22 @@ export function getAllProducts(): Product[] {
     }
     return bd;
 }
+
+
+//Method to delete a Product
+export function deleteProduct(productPosition : i32): bool{
+    if(saveProduct.length < productPosition) {
+        logging.log('El Producto no existe');
+        return false;
+    }
+    //Deleting a product by position
+    saveProduct.swap_remove(productPosition);
+    logging.log('Producto eliminado con exito!');
+    return true;
+}
+
+
+//METHOD TO GET THE TOTAL OF PRODUCTS
+export function getProductsSize(): number {
+    return saveProduct.length;
+}
