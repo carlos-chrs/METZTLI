@@ -1,4 +1,5 @@
-import { PersistentUnorderedMap, context, PersistentMap, u128 } from "near-sdk-as";
+import {PersistentVector, u128, context} from "near-sdk-as";
+
  @nearBindgen
 export class Product{
     // Atributtes
